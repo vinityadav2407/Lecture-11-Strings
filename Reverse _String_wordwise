@@ -1,0 +1,48 @@
+Problem statement:->
+Reverse the given string word wise. That is, the last word in given string should come at 1st place, last second word at 2nd place and so on. Individual words should remain as it is.
+
+Detailed explanation ( Input/output format, Notes, Images )
+Constraints :
+0 <= |S| <= 10^7
+where |S| represents the length of string, S.
+Sample Input 1:
+Welcome to Coding Ninjas
+Sample Output 1:
+Ninjas Coding to Welcome
+Sample Input 2:
+Always indent your code
+Sample Output 2:
+code your indent Always
+>>>>>>
+>>>>
+Solution:->>>>
+public class Solution {
+	public static String reverseWordWise(String input) {
+		String RS = "";
+		for (int i = 0; i < input.length(); i++) {
+			RS=input.charAt(i)+RS;
+		}
+		String ans="";
+		int currentwordstart=0;
+		int i = 0;
+		for (; i < RS.length(); i++){
+			if(RS.charAt(i)==' '){
+				int currentwordend=i-1;
+					String rs="";
+				for(int j=currentwordstart; j<=currentwordend; j++){
+					rs=RS.charAt(j)+rs;
+				}
+				ans=ans+rs+" ";
+				currentwordstart=i+1;
+			}
+		}
+					int currentwordend=i-1;
+					String rs="";
+				for(int j=currentwordstart; j<=currentwordend; j++){
+					rs=RS.charAt(j)+rs;
+				}
+				ans=ans+rs;
+				return ans;
+		}
+
+	}
